@@ -38,6 +38,7 @@
             this.bottomRight = { x: left + brickLayout.width, y: bottom };
             this.topLeft = { x: left, y: bottom + brickLayout.height };
             this.topRight = { x: left + brickLayout.width, y: bottom + brickLayout.height };
+            this.element;
         }
         createBrick() {
             const brickElement = document.createElement('div');
@@ -45,6 +46,7 @@
             brickElement.style.backgroundColor = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
             brickElement.style.left = `${this.bottomLeft.x}px`;
             brickElement.style.bottom = `${this.bottomLeft.y}px`;
+            this.element = brickElement;
             return brickElement;
         }
     }

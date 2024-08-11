@@ -42,15 +42,15 @@ class Ball {
 const ball = new Ball(containerSelector);
 ball.createBall();
 
-const ballSpeed=1;
+const ballSpeed=5;
 
-let ydir=1;
-let xdir=1;
+let ydir=3;
+let xdir=3;
 
 const l = containerElement.getBoundingClientRect();
 
-console.log(parseInt(l.top));
-console.log(parseInt(l.bottom));
+// console.log(parseInt(l.top));
+// console.log(parseInt(l.bottom));
 
 const left = 0
 const right = parseInt(l.right - l.left)
