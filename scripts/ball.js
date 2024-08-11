@@ -44,8 +44,9 @@ ball.createBall();
 
 const ballSpeed=5;
 
-let ydir=3;
-let xdir=3;
+//Do not change
+let ydir=1;
+let xdir=1;
 
 const l = containerElement.getBoundingClientRect();
 
