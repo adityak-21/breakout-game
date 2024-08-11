@@ -7,12 +7,20 @@
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <h1 id="heading">Breakout game</h1>
+    <h1 id="heading" >Breakout game</h1>
+    <h3 id="score" style="display: inline;"></h3>
+    <div id="time" style="display: inline;">00:00:00</div>
+    <button onclick="startStopwatch()">Start</button>
+    <button onclick="stopStopwatch()">Stop</button>
+    <button onclick="resetStopwatch()">Reset</button>
     <!-- <button id="start">Start</button> -->
         <div id="container">
-            <div class="paddle"></div>
-            <div class="ball"></div>
+            <div id="paddle" class="paddle"></div>
+            <!-- <div class="ball"></div> -->
         </div>
 </body>
 <script src="./index.js"></script>
+<script src="./watch.js"></script>
+<script src="./ball.js"></script>
+<script src="./paddle.js"></script>
 </html>
