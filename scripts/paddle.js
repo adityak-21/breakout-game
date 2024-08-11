@@ -13,11 +13,11 @@ document.addEventListener('mousemove', function (event) {
         const mouseX = event.clientX;
         const paddleWidth = paddle.offsetWidth;
         let newPaddleX = mouseX-paddleWidth/2;
-        console.log(newPaddleX);
+        // console.log(newPaddleX);
         if (newPaddleX < mainConatiner.left) {
             newPaddleX = mainConatiner.left;
-        } else if (newPaddleX-mainConatiner.left >= 356) {
-            newPaddleX = 356+mainConatiner.left;
+        } else if (newPaddleX >= mainConatiner.right-paddleWidth) {
+            newPaddleX = mainConatiner.right-paddleWidth;
         }
         paddle.style.left = `${newPaddleX-mainConatiner.left}px`;
     }

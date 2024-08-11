@@ -20,8 +20,8 @@ class Ball {
         ballElement.style.height = `${this.height}px`;
         ballElement.style.width = `${this.width}px`;
         ballElement.style.borderRadius = `${this.radius}%`;
-        ballElement.style.bottom = `10px`;
-        ballElement.style.left = `10px`;
+        ballElement.style.bottom = `100px`;
+        ballElement.style.left = `100px`;
         this.container.appendChild(ballElement);
         this.ballElement = ballElement;
     }
@@ -49,21 +49,31 @@ let xdir=1;
 const l = containerElement.getBoundingClientRect();
 
 console.log(parseInt(l.top));
-console.log(ball.getBottom());
-console.log(ball.getLeft());
+console.log(parseInt(l.bottom));
+
 const left = 0
 const right = parseInt(l.right - l.left)
 const up = parseInt(l.bottom-l.top)
 const down = 0
 
 function ballmovement(){
-    collision();
+    const paddle_ball = document.getElementById('paddle');
+    const p = paddle_ball.getBoundingClientRect();
+    collision(p);
     ball.setBottom(ball.getBottom()+ydir);
     ball.setLeft(ball.getLeft()+xdir);
 }
 
-function collision(){
+
+function collision(p){
     if(ball.getBottom()>=up || ball.getBottom()<=down) ydir = ydir*(-1);
     if(ball.getLeft()>=right|| ball.getLeft()<=left) xdir = xdir*(-1);
+    if((ball.getLeft()>=parseInt(p.left-l.left) && ball.getLeft()<=parseInt(p.right-l.left) && ball.getBottom()<=(l.bottom-p.top))) ydir = ydir*(-1);
+    else if(ball.getBottom()<=(l.bottom-p.top)){
+        window.alert("Game Over");
+        ydir = ydir*(-1);
+        ball.setLeft(100);
+        ball.setBottom(100);
+    }
 }
 setInterval(() => ballmovement(), ballSpeed);

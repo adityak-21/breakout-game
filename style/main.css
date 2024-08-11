@@ -19,8 +19,8 @@
     position: absolute;
 }
 .paddle{
-    width: 200px;
-    height: 15px;
+    width: 150px;
+    height: 10px;
     background-color: blueviolet;
     bottom: 10px;
     position: absolute;
