@@ -4,9 +4,13 @@
 #container{
     display: flex;
     justify-content: center;
+    margin: auto;
     /* align-items: center; */
     height: 80vh;
     position: relative;
+    border: 2px solid;
+    width: 555px;
+    
 }
 .brick{
     width: 50px;
