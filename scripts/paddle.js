@@ -1,5 +1,5 @@
 var containerElement = document.getElementById("container");
-const l = containerElement.getBoundingClientRect();
+const mainConatiner = containerElement.getBoundingClientRect();
 const paddle = document.getElementById('paddle');
 let isDragging = false;
 paddle.addEventListener('mousedown', function (event) {
@@ -14,11 +14,11 @@ document.addEventListener('mousemove', function (event) {
         const paddleWidth = paddle.offsetWidth;
         let newPaddleX = mouseX-paddleWidth/2;
         console.log(newPaddleX);
-        if (newPaddleX < l.left) {
-            newPaddleX = l.left;
-        } else if (newPaddleX-l.left >= 356) {
-            newPaddleX = 356+l.left;
+        if (newPaddleX < mainConatiner.left) {
+            newPaddleX = mainConatiner.left;
+        } else if (newPaddleX-mainConatiner.left >= 356) {
+            newPaddleX = 356+mainConatiner.left;
         }
-        paddle.style.left = `${newPaddleX-l.left}px`;
+        paddle.style.left = `${newPaddleX-mainConatiner.left}px`;
     }
 })

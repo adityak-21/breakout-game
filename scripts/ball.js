@@ -6,7 +6,8 @@ const ballLayout = Object.freeze({
     radius: 50
 });
 class Ball {
-    constructor(containerSelector) {
+   
+    constructor(containerSelector){
         this.height = ballLayout.height;
         this.width = ballLayout.width;
         this.radius = ballLayout.radius;
@@ -19,33 +20,50 @@ class Ball {
         ballElement.style.height = `${this.height}px`;
         ballElement.style.width = `${this.width}px`;
         ballElement.style.borderRadius = `${this.radius}%`;
+        ballElement.style.bottom = `10px`;
+        ballElement.style.left = `10px`;
         this.container.appendChild(ballElement);
         this.ballElement = ballElement;
     }
     getBottom() {
-        return parseInt(this.ballElement.style.bottom) || 0;;
+        return parseInt(this.ballElement.style.bottom) || 0;
     }
     getLeft() {
-        return parseInt(this.ballElement.style.left) || 0;;
+        return parseInt(this.ballElement.style.left) || 0;
     }
     setBottom(bottom) {
-        if (this.ballElement) this.ballElement.style.bottom = `${bottom}px`;
+        if(this.ballElement) this.ballElement.style.bottom = `${bottom}px`;
     }
     setLeft(left) {
-        if (this.ballElement) this.ballElement.style.left = `${left}px`;
+        if(this.ballElement) this.ballElement.style.left = `${left}px`;
     }
 }
 const ball = new Ball(containerSelector);
 ball.createBall();
 
-const ballSpeed = 500;
+const ballSpeed=1;
 
-let ydir = 5;
-let xdir = 5;
+let ydir=1;
+let xdir=1;
 
-function ballmovement() {
-    // collision();
-    ball.setBottom(ball.getBottom() + 5);
-    ball.setLeft(ball.getLeft() + 5);
+const l = containerElement.getBoundingClientRect();
+
+console.log(parseInt(l.top));
+console.log(ball.getBottom());
+console.log(ball.getLeft());
+const left = 0
+const right = parseInt(l.right - l.left)
+const up = parseInt(l.bottom-l.top)
+const down = 0
+
+function ballmovement(){
+    collision();
+    ball.setBottom(ball.getBottom()+ydir);
+    ball.setLeft(ball.getLeft()+xdir);
+}
+
+function collision(){
+    if(ball.getBottom()>=up || ball.getBottom()<=down) ydir = ydir*(-1);
+    if(ball.getLeft()>=right|| ball.getLeft()<=left) xdir = xdir*(-1);
 }
 setInterval(() => ballmovement(), ballSpeed);
