@@ -1,5 +1,7 @@
 #heading{
     text-align: center;
+    justify-content: center;
+    display: flex;
 }
 #container{
     display: flex;
