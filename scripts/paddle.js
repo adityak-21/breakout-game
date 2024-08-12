@@ -5,9 +5,6 @@ let isDragging = false;
 paddle.addEventListener('mousedown', function (event) {
     isDragging = true;
 });
-document.addEventListener('mouseup' ,function(event){
-    isDragging=false;
-});
 document.addEventListener('mousemove', function (event) {
     if (isDragging) {
         const mouseX = event.clientX;
@@ -22,3 +19,11 @@ document.addEventListener('mousemove', function (event) {
         paddle.style.left = `${newPaddleX-mainConatiner.left}px`;
     }
 })
+document.addEventListener("keydown", function(event) {
+    if (event.key == "ArrowLeft"){
+       paddle.style.left = `${parseInt(paddle.style.left)-10}px`;
+    }
+    else if (event.key == "ArrowRight"){
+        paddle.style.left = `${parseInt(paddle.style.left)+10}px`;
+    }
+});
