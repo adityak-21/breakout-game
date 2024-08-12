@@ -6,8 +6,9 @@ const spacing = Object.freeze({
     horizontal: 10,
     vertical: 15
 });
+
 const brickCount = Object({
-    row: 7,
+    row: 4,
     column: 9
 });
 class Brick {

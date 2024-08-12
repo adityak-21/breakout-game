@@ -6,7 +6,7 @@ paddle.addEventListener('mousedown', function (event) {
     isDragging = true;
 });
 document.addEventListener('mousemove', function (event) {
-    if (isDragging && is_started) {
+    if (is_started) {
         const mouseX = event.clientX;
         const paddleWidth = paddle.offsetWidth;
         let newPaddleX = mouseX - paddleWidth / 2;

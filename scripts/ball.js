@@ -2,8 +2,8 @@
 var containerSelector = '#container';
 var containerElement = document.getElementById("container");
 const ballLayout = Object.freeze({
-    height: 20,
-    width: 20,
+    height: 15,
+    width: 15,
     radius: 50
 });
 class Ball {
@@ -20,8 +20,8 @@ class Ball {
         ballElement.style.height = `${this.height}px`;
         ballElement.style.width = `${this.width}px`;
         ballElement.style.borderRadius = `${this.radius}%`;
-        ballElement.style.bottom = `100px`;
-        ballElement.style.left = `100px`;
+        ballElement.style.bottom = `10px`;
+        ballElement.style.left = `10px`;
         this.container.appendChild(ballElement);
         this.ballElement = ballElement;
     }

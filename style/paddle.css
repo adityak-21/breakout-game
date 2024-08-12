@@ -1,0 +1,7 @@
+.paddle{
+    width: 150px;
+    height: 10px;
+    background-color: blueviolet;
+    bottom: 10px;
+    position: absolute;
+}
