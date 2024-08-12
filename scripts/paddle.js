@@ -20,7 +20,7 @@ document.addEventListener('mousemove', function (event) {
     }
 })
 document.addEventListener("keydown", function(event) {
-    if(isStarted)
+    if(is_started)
     {   
         if (event.key == "ArrowLeft"){
         paddle.style.left = `${parseInt(paddle.style.left)-10}px`;

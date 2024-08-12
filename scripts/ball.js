@@ -1,4 +1,4 @@
-// Code written by Aditya
+// This code is written by Aditya
 var containerSelector = '#container';
 var containerElement = document.getElementById("container");
 const ballLayout = Object.freeze({
@@ -42,11 +42,11 @@ class Ball {
 const ball = new Ball(containerSelector);
 // ball.createBall();
 
-const ballSpeed=5;
+let ballSpeed=10.0;
 
 //Do not change
-let ydir=1;
-let xdir=1;
+let ydir=1.0;
+let xdir=1.0;
 
 const l = containerElement.getBoundingClientRect();
 
@@ -65,7 +65,3 @@ function ballmovement(){
     ball.setBottom(ball.getBottom()+ydir);
     ball.setLeft(ball.getLeft()+xdir);
 }
-
-
-
-//Code written by Aditya
