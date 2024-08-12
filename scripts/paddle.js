@@ -6,7 +6,7 @@ paddle.addEventListener('mousedown', function (event) {
     isDragging = true;
 });
 document.addEventListener('mousemove', function (event) {
-    if (isDragging) {
+    if (isDragging && is_started) {
         const mouseX = event.clientX;
         const paddleWidth = paddle.offsetWidth;
         let newPaddleX = mouseX-paddleWidth/2;
@@ -20,10 +20,13 @@ document.addEventListener('mousemove', function (event) {
     }
 })
 document.addEventListener("keydown", function(event) {
-    if (event.key == "ArrowLeft"){
-       paddle.style.left = `${parseInt(paddle.style.left)-10}px`;
+    if(isStarted)
+    {   
+        if (event.key == "ArrowLeft"){
+        paddle.style.left = `${parseInt(paddle.style.left)-10}px`;
+        }
+        else if (event.key == "ArrowRight"){
+            paddle.style.left = `${parseInt(paddle.style.left)+10}px`;
+        }
     }
-    else if (event.key == "ArrowRight"){
-        paddle.style.left = `${parseInt(paddle.style.left)+10}px`;
-    }
 });

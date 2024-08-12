@@ -19,7 +19,7 @@
     position: absolute;
 }
 .paddle{
-    width: 150px;
+    width: 50px;
     height: 10px;
     background-color: blueviolet;
     bottom: 10px;

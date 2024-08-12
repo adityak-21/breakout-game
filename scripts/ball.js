@@ -40,7 +40,7 @@ class Ball {
     }
 }
 const ball = new Ball(containerSelector);
-ball.createBall();
+// ball.createBall();
 
 const ballSpeed=5;
 

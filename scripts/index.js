@@ -1,3 +1,9 @@
+    var is_started=0;
+    var button=document.getElementById('start_button');
+    button.addEventListener('click',function(){
+        is_started=1;
+        ball.createBall();
+    });
     // oject for bricklayout freezed so can't change on live size change
     const brickLayout = Object.freeze({
         height:15,
