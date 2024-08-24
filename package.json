@@ -1,0 +1,24 @@
+{
+  "name": "breakout-game",
+  "version": "1.0.0",
+  "description": "Cs455 homework",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityak-21/breakout-game.git"
+  },
+  "author": "Aditya Khandelwal || Kartik Soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityak-21/breakout-game/issues"
+  },
+  "homepage": "https://github.com/adityak-21/breakout-game#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0"
+  }
+}
