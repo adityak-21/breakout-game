@@ -8,34 +8,57 @@
     <link rel="stylesheet" href="style/ball.css" />
     <link rel="stylesheet" href="style/brick.css" />
     <link rel="stylesheet" href="style/paddle.css" />
-    <link rel="stylesheet" href="style/watch.css" />
-
+    <!-- <link rel="stylesheet" href="style/watch.css" /> -->
   </head>
   <body>
-    
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <div style="text-align: center;">
-          <h2 id="heading" style="margin-bottom: 0;">Breakout game</h2>
-          <h3 id="score" style="display: inline-block;">SCORE</h3>
-          <h3 id="score_value" style="display: inline-block; margin-left: 10px;">0</h3>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      "
+    >
+      <div style="text-align: center">
+        <h2 id="heading" style="margin-bottom: 0">Breakout game</h2>
+        <h3 id="score" style="display: inline-block">SCORE</h3>
+        <h3 id="score_value" style="display: inline-block; margin-left: 10px">
+          0
+        </h3>
       </div>
-  </div>
-  
-  <div style="display: flex; justify-content: center; align-items: center; padding-bottom:15px;">
-    <div id="time" style="font-size: 17px;">00:00:00</div>
-</div>
-    
-    <div id="container" >
+    </div>
+
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 15px;
+      "
+    >
+      <div id="time" style="font-size: 17px">00:00:00</div>
+    </div>
+
+    <div id="container">
       <div id="paddle" class="paddle"></div>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; padding-top:15px;">
-      <button id="start_button" style="font-size: 20px; padding: 15px;">Start</button>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+      "
+    >
+      <button id="start_button" style="font-size: 20px; padding: 15px">
+        Start
+      </button>
     </div>
-  </body> 
-  <script src="scripts/bricks.js"></script>
-  <script src="scripts/index.js"></script>
-  <script src="scripts/watch.js"></script>
-  <script src="scripts/ball.js"></script>
-  <script src="scripts/paddle.js"></script>
-  <script src="scripts/collision.js"></script>
+  </body>
+  <script type="module"  src="scripts/bricks.js"></script>
+  <script type="module" src="scripts/index.js"></script>
+  <script type="module" src="scripts/watch.js"></script>
+  <script type="module" src="scripts/ball.js"></script>
+  <script type="module" src="scripts/paddle.js"></script>
+  <script type="module" src="scripts/collision.js"></script>
 </html>

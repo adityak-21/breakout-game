@@ -2,20 +2,20 @@ var startTime;
 var stopwatchInterval;
 var elapsedPausedTime = 0;
 
-function startStopwatch() {
+export function startStopwatch() {
   if (!stopwatchInterval) {
     startTime = new Date().getTime() - elapsedPausedTime;
     stopwatchInterval = setInterval(updateStopwatch, 1000);
   }
 }
 
-function stopStopwatch() {
+export function stopStopwatch() {
   clearInterval(stopwatchInterval);
   elapsedPausedTime = new Date().getTime() - startTime;
   stopwatchInterval = null;
 }
 
-function resetStopwatch() {
+export function resetStopwatch() {
   stopStopwatch();
   elapsedPausedTime = 0;
   document.getElementById("time").innerHTML = "00:00:00";

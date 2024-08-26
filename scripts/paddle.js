@@ -1,12 +1,14 @@
+import { is_started } from "./index.js";
+
 var containerElement = document.getElementById("container");
 const mainConatiner = containerElement.getBoundingClientRect();
 const paddle = document.getElementById('paddle');
 let isDragging = false;
-paddle.addEventListener('mousedown', function (event) {
+paddle.addEventListener('mousedown', function () {
     isDragging = true;
 });
 document.addEventListener('mousemove', function (event) {
-    if (is_started) {
+    if (is_started && isDragging) {
         const mouseX = event.clientX;
         const paddleWidth = paddle.offsetWidth;
         let newPaddleX = mouseX - paddleWidth / 2;

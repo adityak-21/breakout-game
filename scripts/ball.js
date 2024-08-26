@@ -1,6 +1,8 @@
-// This code is written by Aditya
+import { is_started } from "./index.js";
+import { xdir } from "./collision.js";
+import { ydir } from "./collision.js";
+import { collision } from "./collision.js";
 var containerSelector = '#container';
-var containerElement = document.getElementById("container");
 const ballLayout = Object.freeze({
     height: 15,
     width: 15,
@@ -26,29 +28,28 @@ class Ball {
         this.ballElement = ballElement;
     }
     getBottom() {
+        if(is_started)
         return parseInt(this.ballElement.style.bottom) || 0;
     }
     getLeft() {
+        if(is_started)
         return parseInt(this.ballElement.style.left) || 0;
     }
     setBottom(bottom) {
+        if(is_started)
         if (this.ballElement) this.ballElement.style.bottom = `${bottom}px`;
     }
     setLeft(left) {
+        if(is_started)
         if (this.ballElement) this.ballElement.style.left = `${left}px`;
     }
 }
-const ball = new Ball(containerSelector);
-let ballSpeed = 10.0;
-let ydir = 1.0;
-let xdir = 1.0;
-const l = containerElement.getBoundingClientRect();
-const left = 0
-const right = parseInt(l.right - l.left)
-const up = parseInt(l.bottom - l.top)
-const down = 0
+export const ball = new Ball(containerSelector);
 
-function ballmovement() {
+
+
+
+export function ballmovement() {
     const paddle_ball = document.getElementById('paddle');
     const p = paddle_ball.getBoundingClientRect();
     collision(p);

@@ -1,6 +1,21 @@
+import { ball } from "./ball.js";
+import { startStopwatch } from "./watch.js";
+import { stopStopwatch } from "./watch.js";
+import { resetStopwatch } from "./watch.js";
+import { brickWall } from "./bricks.js";
+import { ballmovement } from "./ball.js";
+export let ydir = 1.0;
+export let xdir = 1.0;
 var score_value = document.getElementById('score_value');
 var max_score = 0;
-function collision(p) {
+var containerElement = document.getElementById("container");
+const l = containerElement.getBoundingClientRect();
+const left = 0
+const right = parseInt(l.right - l.left)
+const up = parseInt(l.bottom - l.top)
+const down = 0
+let ballSpeed = 10.0;
+export function collision(p) {
     if (ball.getBottom() + ball.height >= up) {
         ydir = ydir * (-1);
     }
