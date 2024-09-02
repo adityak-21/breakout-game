@@ -7,4 +7,3 @@ button.addEventListener('click', function () {
     if (!is_started) ball.createBall();
     is_started = 1;
 });
-

@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Cs455 homework",
   "main": "scripts/index.js",
+  "type": "module",
+  "rules": {
+    "complexity": [
+      "error",
+      10
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js",
+    "lint": "npx eslint ./scripts/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +26,9 @@
   "homepage": "https://github.com/adityak-21/breakout-game#readme",
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "chai": "^5.1.1",
     "eslint": "^9.9.1",
-    "globals": "^15.9.0"
+    "globals": "^15.9.0",
+    "mocha": "^10.7.3"
   }
 }
