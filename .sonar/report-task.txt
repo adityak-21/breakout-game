@@ -1,0 +1,7 @@
+organization=breakout-game
+projectKey=breakout-game
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.56336
+dashboardUrl=https://sonarcloud.io/dashboard?id=breakout-game
+ceTaskId=AZGQQBGE9nd_OAd0Li-T
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZGQQBGE9nd_OAd0Li-T

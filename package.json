@@ -11,8 +11,13 @@
     ]
   },
   "scripts": {
+<<<<<<< HEAD
     "test": "mocha test/**/*.js",
     "lint": "npx eslint ./scripts/*.js"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sonar": "sonar-scanner"
+>>>>>>> df4fac19b5b5dc81e27878410947cf5ee581d056
   },
   "repository": {
     "type": "git",
