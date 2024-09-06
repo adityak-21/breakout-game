@@ -30,6 +30,12 @@
     "chai": "^5.1.1",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
-    "mocha": "^10.7.3"
+    "mocha": "^10.7.3",
+    "mock-require": "^3.0.3",
+    "sinon": "^18.0.0"
+  },
+  "dependencies": {
+    "jsdom": "^25.0.0",
+    "package-lock.json": "^1.0.0"
   }
 }

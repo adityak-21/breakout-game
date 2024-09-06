@@ -27,20 +27,20 @@ class Ball {
         this.container.appendChild(ballElement);
         this.ballElement = ballElement;
     }
-    getBottom() {
-        if(is_started)
+    getBottom(force=false) {
+        if(is_started || force)
         return parseInt(this.ballElement.style.bottom) || 0;
     }
-    getLeft() {
-        if(is_started)
+    getLeft(force=false) {
+        if(is_started || force)
         return parseInt(this.ballElement.style.left) || 0;
     }
-    setBottom(bottom) {
-        if(is_started)
+    setBottom(bottom, force=false) {
+        if(is_started || force)
         if (this.ballElement) this.ballElement.style.bottom = `${bottom}px`;
     }
-    setLeft(left) {
-        if(is_started)
+    setLeft(left, force=false) {
+        if(is_started || force)
         if (this.ballElement) this.ballElement.style.left = `${left}px`;
     }
 }
