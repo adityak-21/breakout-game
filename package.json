@@ -11,7 +11,7 @@
     ]
   },
   "scripts": {
-    "test": "mocha test/**/*.js",
+    "test": "mocha --exit test/**/*.js",
     "lint": "npx eslint ./scripts/*.js",
     "sonar": "sonar-scanner"
   },
