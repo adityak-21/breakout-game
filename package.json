@@ -11,9 +11,22 @@
     ]
   },
   "scripts": {
-    "test": "mocha --exit test/**/*.js",
+    "test": "mocha --exit",
+    "test-with-coverage": "nyc --reporter=text mocha --exit",
     "lint": "npx eslint ./scripts/*.js",
     "sonar": "sonar-scanner"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "test/**"
+    ],
+    "include": [
+      "scripts/**"
+    ]
   },
   "repository": {
     "type": "git",
@@ -27,6 +40,7 @@
   "homepage": "https://github.com/adityak-21/breakout-game#readme",
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "c8": "^10.1.2",
     "chai": "^5.1.1",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
