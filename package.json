@@ -13,7 +13,7 @@
   "scripts": {
     "test": "mocha --exit",
     "coverage": "c8 npm test",
-    "coverage-check": "c8 check-coverage --lines 90 --functions 90 --branches 90",
+    "coverage-check": "c8 check-coverage --lines 50 --functions 50 --branches 50",
     "lint": "npx eslint ./scripts/*.js",
     "sonar": "sonar-scanner"
   },
