@@ -13,9 +13,9 @@
   "scripts": {
     "test": "mocha --exit",
     "coverage": "c8 npm test",
+    "coverage-check": "c8 check-coverage --lines 90 --functions 90 --branches 90",
     "lint": "npx eslint ./scripts/*.js",
-    "sonar": "sonar-scanner",
-    "coverage-check": "c8 check-coverage --lines 90 --functions 90 --branches 90"
+    "sonar": "sonar-scanner"
   },
   "repository": {
     "type": "git",
