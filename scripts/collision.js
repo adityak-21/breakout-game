@@ -10,19 +10,21 @@ var score_value = document.getElementById('score_value');
 var max_score = 0;
 var containerElement = document.getElementById("container");
 const l = containerElement.getBoundingClientRect();
-const left = 0
-const right = parseInt(l.right - l.left)
-const up = parseInt(l.bottom - l.top)
-const down = 0
+export function getYDir() {
+    return ydir;
+}
+export function getXDir() {
+    return xdir;
+}
 let ballSpeed = 10.0;
-export function collision(p) {
-    if (ball.getBottom() + ball.height >= up) {
+export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt(l.bottom - l.top), down=0, check=1, check0=0, check1=0, check2=0, check3=0, check4=0) {
+    if ((check || check0) && ball.getBottom() + ball.height >= up) {
         ydir = ydir * (-1);
     }
-    if (ball.getLeft() + ball.width >= right || ball.getLeft() <= left) {
+    if ((check || check1) && ball.getLeft() + ball.width >= right || ball.getLeft() <= left) {
         xdir = xdir * (-1);
     }
-    if ((ball.getLeft() + ball.width >= parseInt(p.left - l.left) && 
+    if ((check || check2) && (ball.getLeft() + ball.width >= parseInt(p.left - l.left) && 
         ball.getLeft() <= parseInt(p.right - l.left) && 
         ball.getBottom() + (ball.height) <= (l.bottom - p.top))
         ) {
@@ -31,19 +33,27 @@ export function collision(p) {
             ball.setBottom(ball.getBottom() + ydir);
             ball.setLeft(ball.getLeft() + xdir);
         }
-    } else if (ball.getBottom() < down) {
-        stopStopwatch(); 
-        max_score=Math.max(max_score,score_value.innerHTML);
-        window.alert(`Game Over:Score ${score_value.innerHTML}`);
-        score_value.innerHTML = 0;
+    } else if ((check || check3) && ball.getBottom() < down) {
+        if(check)
+        {
+            stopStopwatch();
+            max_score=Math.max(max_score,score_value.innerHTML);
+            window.alert(`Game Over:Score ${score_value.innerHTML}`);
+            score_value.innerHTML = 0;
+        }
         if (ydir > 0) ydir = -1;
-        if (ydir < 0) ydir = 1;
+        else if (ydir < 0) ydir = 1;
         if (xdir > 0) xdir = 1;
-        if (xdir < 0) xdir = -1;
+        else if (xdir < 0) xdir = -1;
+        if(check3)
+        {
+            ball.getLeft = () => 10;
+            ball.getLeft = () => 10;
+        }
         ball.setLeft(10);
         ball.setBottom(10);
-        startStopwatch();
-    } else {
+        if(check) startStopwatch();
+    } else if((check || check4)) {
         for (let i = 0; i < brickWall.bricks.length; i++) {
             var brick = brickWall.bricks[i];
             if (
@@ -65,7 +75,7 @@ export function collision(p) {
                 if (xdir > 0) xdir += 0.2;
                 if (xdir < 0) xdir -= 0.2;
                 brickWall.bricks.splice(i, 1);
-                if (brickWall.bricks.length === 0) {
+                if (check && brickWall.bricks.length === 0) {
                     max_score=Math.max(max_score,score_value.innerHTML);
                     window.alert(`Game Over:Score ${max_score} Time:${document.getElementById("time").innerHTML}`);
                     resetStopwatch();
