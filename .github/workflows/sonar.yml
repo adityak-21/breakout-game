@@ -1,0 +1,52 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarQubeCheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: "a23e5e70e8a5197bd2546563e34b06629fa84388"
+        run: |
+          sonar-scanner \
+          -Dsonar.projectKey=breakout-game \
+          -Dsonar.organization=breakout-game \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.login=$SONAR_TOKEN
+
+      - name: Quality Gate Status
+        id: check-quality-gate
+        env:
+          SONAR_TOKEN: "a23e5e70e8a5197bd2546563e34b06629fa84388"
+        run: |
+          curl -u $SONAR_TOKEN: \
+          "https://sonarcloud.io/api/qualitygates/project_status?projectKey=breakout-game" \
+          > quality_gate_status.json
+          QUALITY_STATUS=$(cat quality_gate_status.json | jq -r .projectStatus.status)
+          if [ "$QUALITY_STATUS" != "OK" ]; then
+            echo "Quality gate failed: $QUALITY_STATUS"
+            exit 1
+          fi
