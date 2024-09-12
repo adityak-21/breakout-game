@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.55% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/36</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30.55% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/36</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,79 +103,79 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var startTime;
-var stopwatchInterval;
-var elapsedPausedTime = 0;
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">33x</span></td><td class="text"><pre class="prettyprint lang-js">let startTime;
+let stopwatchInterval;
+let elapsedPausedTime = 0;
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function startStopwatch() {</span>
-<span class="cstat-no" title="statement not covered" >  if (!stopwatchInterval) {</span>
-<span class="cstat-no" title="statement not covered" >    startTime = new Date().getTime() - elapsedPausedTime;</span>
-<span class="cstat-no" title="statement not covered" >    stopwatchInterval = setInterval(updateStopwatch, 1000);</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function startStopwatch() {
+  if (!stopwatchInterval) {
+    startTime = new Date().getTime() - elapsedPausedTime;
+    stopwatchInterval = setInterval(updateStopwatch, 1000);
+  }
+}
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function stopStopwatch() {</span>
-<span class="cstat-no" title="statement not covered" >  clearInterval(stopwatchInterval);</span>
-<span class="cstat-no" title="statement not covered" >  elapsedPausedTime = new Date().getTime() - startTime;</span>
-<span class="cstat-no" title="statement not covered" >  stopwatchInterval = null;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function stopStopwatch() {
+  clearInterval(stopwatchInterval);
+  elapsedPausedTime = new Date().getTime() - startTime;
+  stopwatchInterval = null;
+}
 &nbsp;
-export <span class="fstat-no" title="function not covered" >function resetStopwatch() {</span>
-<span class="cstat-no" title="statement not covered" >  stopStopwatch();</span>
-<span class="cstat-no" title="statement not covered" >  elapsedPausedTime = 0;</span>
-<span class="cstat-no" title="statement not covered" >  document.getElementById("time").innerHTML = "00:00:00";</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+export function resetStopwatch() {
+  stopStopwatch();
+  elapsedPausedTime = 0;
+  document.getElementById("time").innerHTML = "00:00:00";
+}
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function updateStopwatch() {</span></span>
-<span class="cstat-no" title="statement not covered" >  var currentTime = new Date().getTime();</span>
-<span class="cstat-no" title="statement not covered" >  var elapsedTime = currentTime - startTime;</span>
-<span class="cstat-no" title="statement not covered" >  var seconds = Math.floor(elapsedTime / 1000) % 60;</span>
-<span class="cstat-no" title="statement not covered" >  var minutes = Math.floor(elapsedTime / 1000 / 60) % 60;</span>
-<span class="cstat-no" title="statement not covered" >  var hours = Math.floor(elapsedTime / 1000 / 60 / 60);</span>
-<span class="cstat-no" title="statement not covered" >  var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);</span>
-<span class="cstat-no" title="statement not covered" >  document.getElementById("time").innerHTML = displayTime;</span>
-<span class="cstat-no" title="statement not covered" >}</span>
+function updateStopwatch() {
+  let currentTime = new Date().getTime();
+  let elapsedTime = currentTime - startTime;
+  let seconds = Math.floor(elapsedTime / 1000) % 60;
+  let minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
+  let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+  let displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+  document.getElementById("time").innerHTML = displayTime;
+}
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function pad(number) {</span></span>
-<span class="cstat-no" title="statement not covered" >  return (number &lt; 10 ? "0" : "") + number;</span>
-<span class="cstat-no" title="statement not covered" >}</span></pre></td></tr></table></pre>
+function pad(number) {
+  return (number &lt; 10 ? "0" : "") + number;
+}</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-09-11T13:37:55.605Z
+                at 2024-09-12T11:54:45.853Z
             </div>
         <script src="prettify.js"></script>
         <script>
