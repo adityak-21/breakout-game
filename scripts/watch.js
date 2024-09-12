@@ -1,6 +1,6 @@
-var startTime;
-var stopwatchInterval;
-var elapsedPausedTime = 0;
+let startTime;
+let stopwatchInterval;
+let elapsedPausedTime = 0;
 
 export function startStopwatch() {
   if (!stopwatchInterval) {
@@ -22,12 +22,12 @@ export function resetStopwatch() {
 }
 
 function updateStopwatch() {
-  var currentTime = new Date().getTime();
-  var elapsedTime = currentTime - startTime;
-  var seconds = Math.floor(elapsedTime / 1000) % 60;
-  var minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
-  var hours = Math.floor(elapsedTime / 1000 / 60 / 60);
-  var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+  let currentTime = new Date().getTime();
+  let elapsedTime = currentTime - startTime;
+  let seconds = Math.floor(elapsedTime / 1000) % 60;
+  let minutes = Math.floor(elapsedTime / 1000 / 60) % 60;
+  let hours = Math.floor(elapsedTime / 1000 / 60 / 60);
+  let displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
   document.getElementById("time").innerHTML = displayTime;
 }
 

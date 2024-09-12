@@ -1,14 +1,11 @@
-import { ball } from "./ball.js";
-import { startStopwatch } from "./watch.js";
-import { stopStopwatch } from "./watch.js";
-import { resetStopwatch } from "./watch.js";
+import { ball, ballmovement } from "./ball.js";
+import { startStopwatch, stopStopwatch, resetStopwatch } from "./watch.js";
 import { brickWall } from "./bricks.js";
-import { ballmovement } from "./ball.js";
 export let ydir = 1.0;
 export let xdir = 1.0;
-var score_value = document.getElementById('score_value');
-var max_score = 0;
-var containerElement = document.getElementById("container");
+let score_value = document.getElementById('score_value');
+let max_score = 0;
+let containerElement = document.getElementById("container");
 const l = containerElement.getBoundingClientRect();
 export function getYDir() {
     return ydir;
@@ -55,7 +52,7 @@ export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt
         if(check) startStopwatch();
     } else if((check || check4)) {
         for (let i = 0; i < brickWall.bricks.length; i++) {
-            var brick = brickWall.bricks[i];
+            let brick = brickWall.bricks[i];
             if (
                 ball.getLeft() + ball.width >= brick.bottomLeft.x &&
                 ball.getLeft() <= brick.bottomRight.x &&

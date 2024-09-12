@@ -1,8 +1,6 @@
 import { is_started } from "./index.js";
-import { xdir } from "./collision.js";
-import { ydir } from "./collision.js";
-import { collision } from "./collision.js";
-var containerSelector = '#container';
+import { xdir, ydir, collision } from "./collision.js";
+let containerSelector = '#container';
 const ballLayout = Object.freeze({
     height: 15,
     width: 15,

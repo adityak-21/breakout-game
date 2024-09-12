@@ -1,5 +1,5 @@
-var containerElement = document.getElementById("container");
-var containerTopMargin = parseInt(window.getComputedStyle(containerElement).height);
+let containerElement = document.getElementById("container");
+let containerTopMargin = parseInt(window.getComputedStyle(containerElement).height);
 const initialBottom = containerTopMargin;
 const brickLayout = Object.freeze({
     height: 15,
@@ -70,6 +70,6 @@ export class BrickWall {
         this.displayBricks();
     }
 }
-var containerSelector = '#container';
+let containerSelector = '#container';
 export const brickWall = new BrickWall(containerSelector);
 brickWall.buildWall();

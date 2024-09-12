@@ -1,6 +1,6 @@
 import { is_started } from "./index.js";
 
-var containerElement = document.getElementById("container");
+let containerElement = document.getElementById("container");
 const mainConatiner = containerElement.getBoundingClientRect();
 const paddle = document.getElementById('paddle');
 let isDragging = false;
@@ -19,7 +19,7 @@ document.addEventListener('mousemove', function (event) {
         }
         paddle.style.left = `${newPaddleX-mainConatiner.left}px`;
     }
-})
+});
 document.addEventListener("keydown", function (event) {
     if (is_started) {
         if (event.key == "ArrowLeft") {
