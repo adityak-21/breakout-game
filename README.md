@@ -2,7 +2,7 @@
 
 This project is a demo Breakout game built with Node.js as part of the CS455 coursework.
 
-Code smell[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=breakout-game&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=breakout-game)
+Code smell [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=breakout-game&metric=code_smells)](https://sonarcloud.io/summary/overall?id=adityak-21_breakout-game)
 
 Test coverage
 [<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Coverage" width="30"/>](https://kartik-r-soni.github.io/breakout-game-code-coverage/)
