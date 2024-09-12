@@ -7,6 +7,8 @@ Code smell [![Code Smells](https://sonarcloud.io/api/project_badges/measure?proj
 Test coverage
 [<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Coverage" width="30"/>](https://kartik-r-soni.github.io/breakout-game-code-coverage/)
 
+Kindly check Metrices folder for code quality, coverage and tests comparison before and after this homework.
+
 ## Node Packages Used
 
 - **ESLint**: Enforces code quality through linting with custom rules.
