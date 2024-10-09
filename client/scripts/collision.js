@@ -88,7 +88,7 @@ export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt
 
 setInterval(() => ballmovement(), ballSpeed);
 
-function func(playerName,score)
+function func(playerName,max_score)
 {
     fetch('https://backend-1-cr8v.onrender.com/api/leaderboard', {
         method: 'POST',
