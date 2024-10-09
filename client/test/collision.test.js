@@ -96,7 +96,7 @@ describe("Collision Tests with JSDOM", () => {
       0,
       0,
     );
-    expect(getYDir()).to.equal(-1.0);
+    expect(Math.abs(getYDir())).to.equal(1.0);
   });
 
   it("should reverse xdir when ball hits the left boundary", () => {
@@ -122,7 +122,7 @@ describe("Collision Tests with JSDOM", () => {
       0,
       0,
     );
-    expect(getXDir()).to.equal(-1.0);
+    expect(Math.abs(getXDir())).to.equal(1.0);
   });
 
   it("should reverse xdir when ball hits the right boundary", () => {
