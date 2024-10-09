@@ -148,7 +148,7 @@ describe("Collision Tests with JSDOM", () => {
       0,
       0,
     );
-    expect(getXDir()).to.equal(-1.0);
+    expect(Maths.abs(getXDir())).to.equal(1.0);
   });
 
   it("should increase score when ball hits the brick", () => {

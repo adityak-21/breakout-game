@@ -74,6 +74,8 @@ export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt
                 brickWall.bricks.splice(i, 1);
                 if (check && brickWall.bricks.length === 0) {
                     max_score=Math.max(max_score,score_value.innerHTML);
+                    const playerName = window.prompt("Game Over! Enter your name:", "Player Name");
+                    func(playerName,max_score);
                     window.alert(`Game Over:Score ${max_score} Time:${document.getElementById("time").innerHTML}`);
                     resetStopwatch();
                     location.reload();
@@ -85,3 +87,24 @@ export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt
 }
 
 setInterval(() => ballmovement(), ballSpeed);
+
+function func(playerName,score)
+{
+    fetch('https://backend-1-cr8v.onrender.com/api/leaderboard', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: playerName,
+            score: max_score
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
