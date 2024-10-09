@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const defaultDbURI = process.env.MONGO_URI || 'mongodb+srv://kartik18badmera:95Gyw7FdB9lsIkQ4@leaderboard.emzxu.mongodb.net/?retryWrites=true&w=majority&appName=Leaderboard';
+const defaultDbURI = process.env.MONGO_URI;
 export const connectDB = async (uri = defaultDbURI) => {
     try {
         await mongoose.connect(uri, {
