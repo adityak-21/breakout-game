@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "NODE_ENV=test mocha ",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mocha": "^10.7.3",
+    "mongodb": "^6.9.0",
+    "mongodb-memory-server": "^10.1.0",
+    "mongoose": "^8.6.3",
+    "supertest": "^7.0.0"
+  },
+  "nyc": {
+  "include": ["routes/**/*.js", "models/**.js", "server.js", "db.js"],
+  "exclude": [ "node_modules"],
+  "all": true,
+  "reporter": ["text", "lcov"],
+  "cache": false
+}
+,
+  "devDependencies": {
+    "nyc": "^17.1.0"
+  }
+}
