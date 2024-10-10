@@ -9,11 +9,13 @@ let button = document.getElementById('start_button');
 if (button) {
     button.addEventListener('click', function () {
         startStopwatch();
-        fetch_score();
         if (!is_started) ball.createBall();
         is_started = true; // Set to true instead of 1
     });
 }
+// 
+fetch_score();
+
 function fetch_score()
 {
     fetch('https://backend-1-cr8v.onrender.com/lead', {
@@ -59,4 +61,3 @@ function fetch_score()
         console.error('Error fetching leaderboard:', error);
     });
 }
-

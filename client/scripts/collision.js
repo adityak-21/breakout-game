@@ -79,6 +79,7 @@ export function collision(p, left=0, right=parseInt(l.right-l.left), up=parseInt
                     window.alert(`Game Over:Score ${max_score} Time:${document.getElementById("time").innerHTML}`);
                     resetStopwatch();
                     location.reload();
+                    fetch_score();
                 }
                 break;
             }
