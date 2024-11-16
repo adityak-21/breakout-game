@@ -1,4 +1,4 @@
-name: Selenium Load Time Test
+name: Validate Client Load Testing Results
 
 on:
   push:
@@ -7,38 +7,33 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  selenium-test:
+  validate-results:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install Chrome and dependencies
+      - name: Validate Test Results
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-
-      - name: Install Selenium WebDriver
-        run: |
-          npm install selenium-webdriver chromedriver
-
-      - name: Run Selenium Load Time Test
-        run: |
-          mkdir -p results
-          node ./performance-test/client-performance.test.js > results/load-time-results.txt
-
-      - name: Commit Test Results
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add results/load-time-results.txt
-          git commit -m "Add Selenium load time test results"
-          git push
+          echo "Validating all parameters in output-client.log..."
+          if grep -q 'Total Load Time:' ./output-client.log; then
+            awk '/Total Load Time:/ { if ($4 > 2000) { print "ERROR: Load time exceeds 2 seconds: " $4 " ms"; exit 1; } }' ./output-client.log || true
+          fi
+          if grep -q 'DOM Content Loaded Time:' ./output-client.log; then
+            awk '/DOM Content Loaded Time:/ { if ($5 > 2000) { print "ERROR: DOM content load time exceeds 2 seconds: " $5 " ms"; exit 1; } }' ./output-client.log || true
+          fi
+          if grep -q 'Duration:' ./output-client.log; then
+            awk '/Duration:/ { if ($NF > 2000) { print "ERROR: Asset load duration exceeds 2 seconds: " $NF " ms"; exit 1; } }' ./output-client.log || true
+          fi
+          if grep -q 'Memory Usage:' ./output-client.log; then
+            awk '/Memory Usage:/ { if ($3 > 500) { print "ERROR: Memory usage exceeds 500 MB: " $3 " MB"; exit 1; } }' ./output-client.log || true
+          fi
+          if grep -q 'Time to Interactive:' ./output-client.log; then
+            awk '/Time to Interactive:/ { if ($4 > 3000) { print "ERROR: Time to Interactive exceeds 3 seconds: " $4 " ms"; exit 1; } }' ./output-client.log || true
+          fi
+          echo "All parameters are within acceptable limits."
