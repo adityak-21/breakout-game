@@ -1,44 +1,44 @@
-# name: Selenium Load Time Test
+name: Selenium Load Time Test
 
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-# jobs:
-#   selenium-test:
-#     runs-on: ubuntu-latest
+jobs:
+  selenium-test:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-#       - name: Install Chrome and dependencies
-#         run: |
-#           sudo apt-get update
-#           sudo apt-get install -y chromium-browser
+      - name: Install Chrome and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
 
-#       - name: Install Selenium WebDriver
-#         run: |
-#           npm install selenium-webdriver chromedriver
+      - name: Install Selenium WebDriver
+        run: |
+          npm install selenium-webdriver chromedriver
 
-#       - name: Run Selenium Load Time Test
-#         run: |
-#           mkdir -p results
-#           node ./performance-test/client-performance.test.js > results/load-time-results.txt
+      - name: Run Selenium Load Time Test
+        run: |
+          mkdir -p results
+          node ./performance-test/client-performance.test.js > results/load-time-results.txt
 
-#       - name: Commit Test Results
-#         run: |
-#           git config user.name "github-actions[bot]"
-#           git config user.email "github-actions[bot]@users.noreply.github.com"
-#           git add results/load-time-results.txt
-#           git commit -m "Add Selenium load time test results"
-#           git push
+      - name: Commit Test Results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/load-time-results.txt
+          git commit -m "Add Selenium load time test results"
+          git push
