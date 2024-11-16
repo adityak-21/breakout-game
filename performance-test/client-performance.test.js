@@ -1,4 +1,4 @@
-import { Builder, Capabilities } from 'selenium-webdriver';
+const { Builder, Capabilities } = require('selenium-webdriver');
 
 const performanceTimingScript = `
     let performance = window.performance || window.webkitPerformance || window.msPerformance || window.mozPerformance;
@@ -48,4 +48,3 @@ const performanceTimingScript = `
         await driver.quit();
     }
 })();
-
