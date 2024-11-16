@@ -10,13 +10,13 @@
       10
     ]
   },
-    "scripts": {
-      "test": "mocha --exit",
-      "coverage": "c8 npm test",
-      "coverage-check": "c8 check-coverage --lines 50 --functions 50 --branches 50",
-      "lint": "npx eslint ./scripts/*.js",
-      "sonar": "sonar-scanner"
-    },
+  "scripts": {
+    "test": "mocha --exit",
+    "coverage": "c8 npm test",
+    "coverage-check": "c8 check-coverage --lines 50 --functions 50 --branches 50",
+    "lint": "npx eslint ./scripts/*.js",
+    "sonar": "sonar-scanner"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adityak-21/breakout-game.git"
@@ -42,6 +42,7 @@
   "dependencies": {
     "jsdom": "^25.0.0",
     "nyc": "^17.0.0",
-    "package-lock.json": "^1.0.0"
+    "package-lock.json": "^1.0.0",
+    "selenium-webdriver": "^4.26.0"
   }
 }
