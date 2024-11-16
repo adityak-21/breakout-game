@@ -46,14 +46,14 @@ jobs:
             awk '/http_req_waiting:/ { if ($5 > 3000) { print "ERROR: HTTP waiting time exceeds 3 seconds: " $5; exit 1; } }' ./output-server.log || true
           fi
 
-          if grep -q 'Γ£ô POST status is 201' ./output-server.log; then
-            awk '/Γ£ô POST status is 201/ { if ($4 != 201) { print "ERROR: POST status is not 201: " $4; exit 1; } }' ./output-server.log || true
+          if grep -q 'POST status is 201' ./output-server.log; then
+            awk '/POST status is 201/ { if ($4 != 201) { print "ERROR: POST status is not 201: " $4; exit 1; } }' ./output-server.log || true
           else
             echo "ERROR: POST status not found in log."; exit 1
           fi
 
-          if grep -q 'Γ£ô GET status is 200' ./output-server.log; then
-            awk '/Γ£ô GET status is 200/ { if ($4 != 200) { print "ERROR: GET status is not 200: " $4; exit 1; } }' ./output-server.log || true
+          if grep -q 'GET status is 200' ./output-server.log; then
+            awk '/GET status is 200/ { if ($4 != 200) { print "ERROR: GET status is not 200: " $4; exit 1; } }' ./output-server.log || true
           else
             echo "ERROR: GET status not found in log."; exit 1
           fi
