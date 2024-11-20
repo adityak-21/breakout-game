@@ -7,55 +7,46 @@
 - [Frontend Test Coverage](https://kartik-r-soni.github.io/breakout-game-code-coverage/)
 
 ---
+# README
 
-## Implementation Details
+## Implementation of Task 1
 
-This project builds on the client-server architecture introduced in Assignment 2, with the extension of a server that handles leaderboard data. Below is a summary of each component in the system.
+### Performance Test for Client-Side Rendering
+- **Objective**: Measure and validate the performance metrics for client-side rendering. The results are logged daily and checked against predefined thresholds.
+  
+#### Code Implementation:
+- **Location**: `./client/test/performance.test.js`
+- **Node Packages Used**:
+  - `selenium-webdriver`: For browser automation and performance measurement.
 
-### 1. Client
+#### CI Pipeline:
+- **Location**: `./github/workflows/validate-client-results.yml`
+- **Functionality**:
+  - Scheduled daily execution of performance tests using GitHub Actions.
+  - Validates parameters such as load time, DOM content loaded time, asset duration, memory usage, and time to interactive from the `./output-client.log` file.
+  - Raises errors if thresholds are exceeded, ensuring performance stays within acceptable limits.
 
-- **Technology**: HTML, CSS, and JavaScript
-- **Description**: The client-side of the application was developed in the previous assignment (Assignment 2). It serves as the interface through which users can interact with the game and submit their scores to the leaderboard.
+#### Test Logs:
+- **Output File**: `./output-client.log`
+- Contains daily logs of performance metrics such as total load time, DOM content loaded time, and resource impact on load duration.
 
-### 2. Server
 
-- **Technology**: Express.js
-- **Description**: The server is implemented using Node.js and Express.js. It acts as the middle layer between the client and the database. The server handles incoming requests, such as posting new scores to the leaderboard or retrieving the top scores.
+### Performance Test for Server-Side API
+- **Objective**: Measure and validate the performance metrics for server-side API operations. The results are logged daily and checked against predefined thresholds.
 
-### 3. Database
+#### Code Implementation:
+- **Location**: `./server/test/performance.test.js`
+- **Node Packages Used**:
+  - `k6`: For load testing of the server-side API endpoints.
 
-- **Technology**: MongoDB
-- **Description**: MongoDB is used as the database for storing the leaderboard scores. It provides a scalable solution to store and query player scores efficiently.
+#### CI Pipeline:
+- **Location**: `./github/workflows/validate-server-metrics.yml`
+- **Functionality**:
+  - Scheduled daily execution of performance tests using GitHub Actions.
+  - Validates metrics such as HTTP request duration, iteration duration, data received, TLS handshaking time, and request status codes from the `./output-server.log` file.
+  - Flags errors if thresholds are exceeded or critical parameters like POST and GET status codes are not met.
 
----
+#### Test Logs:
+- **Output File**: `./output-server.log`
+- Contains daily logs of performance metrics such as HTTP request duration, iteration duration, and TLS handshaking time.
 
-## Microservices Architecture
-
-The project is composed of three microservices:
-
-1. **Client**: The frontend developed in Assignment 2, responsible for interacting with users.
-2. **Server**: Handles the business logic, including the communication between the client and the database.
-3. **Database**: A MongoDB database that stores the leaderboard information.
-
-These microservices work together to create a seamless flow of data between the game interface and the persistent storage of player scores.
-
----
-
-## How to Run the Project
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/adityak-21/breakout-game.git
-    ```
-2. **Deploying Frontend**:
-    ```bash
-    cd client 
-    npm install
-    ##Now you can open html in live server
-    ```
-3. **Backend**:
-    ```bash
-    cd server
-    npm install
-    node server.js
-    ```    
-    
